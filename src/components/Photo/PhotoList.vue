@@ -1,0 +1,109 @@
+<template>
+  <div class="container">
+    <Header title="新闻"></Header>
+    <div id="slider" class="mui-slider">
+      <div
+        id="sliderSegmentedControl"
+        class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
+      >
+        <div class="mui-scroll">
+          <a class="mui-control-item mui-active" @click="getPhotoListByCateId(1)">推荐</a>
+          <a class="mui-control-item" @click="getPhotoListByCateId(2)">明星</a>
+          <a class="mui-control-item" @click="getPhotoListByCateId(3)">体育</a>
+          <a class="mui-control-item" @click="getPhotoListByCateId(4)">校园</a>
+        </div>
+      </div>
+    </div>
+    <ul class="photo-list">
+      <router-link
+        v-for="item in photoList"
+        :key="item.id"
+        :to="'/home/photoinfo/' + item.id"
+        tag="li"
+      >
+        <img v-lazy="item.src">
+        <div class="info">
+          <h1 class="info-title">{{ item.title }}</h1>
+          <div class="info-body">{{ item.content }}</div>
+        </div>
+      </router-link>
+    </ul>
+  </div>
+</template>
+
+<script>
+import Header from "@/components/Header";
+export default {
+  name: "photoList",
+  data() {
+    return {
+      photoList: []
+    };
+  },
+  props: {
+    title: String
+  },
+  components: {
+    Header
+  },
+  mounted(){
+    this.getPhotoListByCateId(1);
+  },
+  methods: {
+    getPhotoListByCateId(id) {
+      console.log(id);
+      this.axios
+        .get("http://120.27.1.3/shopping_api/photoSelect.php?id=" + id)
+        .then(res => {
+          this.photoList = res.data.data.img;
+        });
+    }
+  }
+};
+</script>
+
+
+<style lang="scss" scoped>
+
+.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.photo-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  padding-bottom: 0;
+  li {
+    background-color: #ccc;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0 0 9px #999;
+    position: relative;
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+    img[lazy="loading"] {
+      width: 40px;
+      height: 300px;
+      margin: auto;
+    }
+
+    .info {
+      color: white;
+      text-align: left;
+      // position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      max-height: 200px;
+      .info-title {
+        font-size: 14px;
+      }
+      .info-body {
+        font-size: 13px;
+      }
+    }
+  }
+}
+</style>
