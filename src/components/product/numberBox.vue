@@ -1,6 +1,6 @@
 <template>
 
-  <div class="mui-numbox" data-numbox-min='1' :data-numbox-max="max">
+  <div class="mui-numbox" data-numbox-min='1'>
     <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
     <input id="test" class="mui-input-numbox" type="number" value="1" @change="countChanged" ref="numbox" />
     <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
@@ -23,7 +23,6 @@ export default {
     }
   },
     props: ["max"],
-//   props: ["max"],
   watch: {
     // 属性监听
     max: function(newVal, oldVal) {

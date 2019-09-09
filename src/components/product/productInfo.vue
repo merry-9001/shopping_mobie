@@ -17,7 +17,6 @@
       </div>
     </div>
 
-
     <!-- 商品购买区域 -->
     <div class="mui-card">
       <div class="mui-card-header">{{ goodsinfo.title }}</div>
@@ -105,23 +104,16 @@ export default {
     addToShopCar()
     {
        this.ballFlag = !this.ballFlag;
+      var goodsinfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      this.$store.commit("addToCar", goodsinfo);
     },
-    // beforeEnter(el) {
-    //   el.style.transform = "translate(0, 0)";
-    // },
-    // enter(el, done) {
-    //   el.offsetWidth;
-    //   el.style.transform="translate(93px, 230px)";
-    //   el.style.transition="all 1s ease";
-    //   done();
-    // },
-    // afterEnter(el) {
-    //   this.ballFlag = !this.ballFlag;
-    // },
     getSelectedCount(count) {
-      // 当子组件把 选中的数量传递给父组件的时候，把选中的值保存到 data 上
       this.selectedCount = count;
-      // console.log("父组件拿到的数量值为： " + this.selectedCount);
     }
   },
 }

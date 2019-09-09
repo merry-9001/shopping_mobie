@@ -5,14 +5,8 @@
         <img :src="item.src" alt />
       </mt-swipe-item>
     </mt-swipe>
-    <!-- <h1>232</h1>
-    <h1>232</h1>
-    <h1>232</h1>
-    <h1>232</h1> -->
 </div>
 </template>
-
-
 
 <script>
 export default {
