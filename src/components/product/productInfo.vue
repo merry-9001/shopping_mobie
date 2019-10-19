@@ -12,14 +12,16 @@
     <div class="mui-card">
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
-          <Swiper :lunbotuList="img" :isfull="false"></Swiper>
+          <!-- <Swiper :lunbotuList="goodsinfo.src" :isfull="false"></Swiper> -->
+          <img :src="goodsinfo.src" alt class="phone">
         </div>
       </div>
     </div>
 
     <!-- 商品购买区域 -->
     <div class="mui-card">
-      <div class="mui-card-header">{{ goodsinfo.title }}</div>
+      <div class="mui-card-header">{{ goodsinfo.title }}
+      </div>
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
           <p class="price">
@@ -119,6 +121,9 @@ export default {
 }
 </script>
 <style scoped>
+.phone{
+  width:100%;
+}
 .containerInfo{
   padding-top: 40px;
   padding-bottom:40px;
