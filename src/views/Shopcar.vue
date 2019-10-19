@@ -71,7 +71,7 @@ export default {
     var ss = idArr.join(",");
     // console.log(ss);
     this.axios
-      .get("http://120.27.1.3/shopping_api/shoppingCar.php?id=" + ss)
+      .get("http://47.96.175.28/shopping_api/shoppingCar.php?id=" + ss)
       .then(res => {
         // console.log(res);
         var state = res.data.state;

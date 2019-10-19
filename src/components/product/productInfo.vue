@@ -82,7 +82,7 @@ export default {
   methods: {
     initInfo()
     {
-      this.axios.get('http://120.27.1.3/shopping_api/productInfo.php?id='+this.id).then(res=>{
+      this.axios.get('http://47.96.175.28/shopping_api/productInfo.php?id='+this.id).then(res=>{
           var state=res.data.state;
           console.log(res);
           if(state==='0')
@@ -91,7 +91,7 @@ export default {
             //   console.log(this.productInfo);
           }
       });
-      this.axios.get('http://120.27.1.3/shopping_api/productInfoImg.php?id='+this.id).then(res=>{
+      this.axios.get('http://47.96.175.28/shopping_api/productInfoImg.php?id='+this.id).then(res=>{
           var state=res.data.state;
         //   console.log(res);
           if(state==='0')
