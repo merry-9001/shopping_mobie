@@ -42,7 +42,7 @@ export default {
   },
   methods:{
       getList(){
-          this.axios.get('http://47.96.175.28/shopping_api/productList.php?page='+this.index).then(res=>{
+          this.axios.get('http://118.25.8.143/shopping_api/productList.php?page='+this.index).then(res=>{
               var state=res.data.state;
             //   console.log(res);
               if(state==='0')

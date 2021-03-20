@@ -63,7 +63,7 @@ export default {
     getPhotoListByCateId(id) {
       console.log(id);
       this.axios
-        .get("http://47.96.175.28/shopping_api/photoSelect.php?id=" + id)
+        .get("/shopping_api/photoSelect.php?id=" + id)
         .then(res => {
           this.photoList = res.data.data.img;
         });
